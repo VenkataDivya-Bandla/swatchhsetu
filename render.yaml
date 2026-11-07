@@ -1,0 +1,13 @@
+# One-click deploy on Render (render.com): New > Blueprint > pick this repo.
+# Free plan: SQLite inside the container, demo data re-seeded on every start.
+services:
+  - type: web
+    name: swachhsetu-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEMO_MODE
+        value: "1"

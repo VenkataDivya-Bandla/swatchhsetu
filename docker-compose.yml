@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: swachh
+      POSTGRES_PASSWORD: swachh
+      POSTGRES_DB: swachhsetu
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+  app:
+    build: .
+    depends_on: [db]
+    environment:
+      DATABASE_URL: postgresql://swachh:swachh@db:5432/swachhsetu
+      SECRET_KEY: change-me-for-anything-public
+    ports: ["8000:8000"]
+    profiles: ["full"]
+volumes:
+  pgdata:

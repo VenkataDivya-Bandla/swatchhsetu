@@ -1,0 +1,9 @@
+node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+*.db
+captures/screens/
+captures/video/
+captures/*.mp4
+.venv/

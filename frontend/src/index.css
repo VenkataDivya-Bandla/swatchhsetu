@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { font-feature-settings: "tnum" 1; }
+  :focus-visible { outline: 3px solid #E8A317; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-[15px] font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-river text-white hover:bg-river-dark; }
+  .btn-quiet { @apply btn border border-line bg-white text-ink hover:bg-paper; }
+  .btn-danger { @apply btn border border-st-issue/40 bg-white text-st-issue hover:bg-orange-50; }
+  .field { @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-[15px] focus:border-river focus:outline-none; }
+  .panel { @apply rounded-xl border border-line bg-white; }
+  .label { @apply text-[13px] font-medium text-ink-muted; }
+  /* The freshness stamp: the one memorable element, styled like a municipal inspection stamp. */
+  .stamp { @apply relative rounded-[14px] border-2 px-4 py-3; box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 4px currentColor; }
+}
+
+.leaflet-container { font-family: inherit; }
+
+@media print {
+  @page { size: A4; margin: 10mm; }
+  body { background: #fff; }
+}
